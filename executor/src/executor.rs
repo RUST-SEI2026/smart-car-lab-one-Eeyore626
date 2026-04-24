@@ -42,7 +42,7 @@ impl Executor {
                 },
                 'R' => match self.pose.heading {
                     'E' => self.pose.heading = 'S',
-                    
+                    'S' => self.pose.heading = 'W',
                     
                     
                     _ => (),
