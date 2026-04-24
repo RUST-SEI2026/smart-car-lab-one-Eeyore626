@@ -44,5 +44,17 @@ mod turn_left_tests {
         assert_eq!(expected_pose, executor.query());
     }
 
+    #[test]
+    fn should_return_facing_w_given_command_is_l_and_facing_is_n() {
+        // given
+        let original_pose = Pose::new(0, 0, 'N');
+        let mut executor = Executor::with_pose(original_pose);
 
+        // when
+        executor.execute("L");
+
+        // then
+        let expected_pose = Pose::new(0, 0, 'W');
+        assert_eq!(expected_pose, executor.query());
+    }
 }
