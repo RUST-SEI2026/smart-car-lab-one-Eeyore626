@@ -162,5 +162,17 @@ mod move_tests {
         assert_eq!(expected_pose, executor.query());
     }
 
-    
+    #[test]
+    fn should_return_y_minus_1_given_command_is_m_and_facing_is_s() {
+        // given
+        let original_pose = Pose::new(0, 0, 'S');
+        let mut executor = Executor::with_pose(original_pose);
+
+        // when
+        executor.execute("M");
+
+        // then
+        let expected_pose = Pose::new(0, -1, 'S');
+        assert_eq!(expected_pose, executor.query());
+    }
 }
